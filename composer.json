@@ -8,7 +8,8 @@
         "silverstripe/recipe-cms": "1.1.0@stable",
         "silverstripe-themes/simple": "~3.2.0",
         "cwp/watea-theme": "^1.1",
-        "symbiote/silverstripe-queuedjobs": "^4.2"
+        "symbiote/silverstripe-queuedjobs": "^4.2",
+        "marczhermo/algolia-search": "dev-master"
     },
     "require-dev": {
         "phpunit/phpunit": "^5.7"

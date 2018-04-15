@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "e32496fbb949f643c1e9d011f30dbef8",
+    "content-hash": "1d7d8fd50b327dcc7ffc71440acc3f44",
     "packages": [
         {
             "name": "asyncphp/doorman",
@@ -719,6 +719,107 @@
                 "topsort"
             ],
             "time": "2016-11-19T14:58:11+00:00"
+        },
+        {
+            "name": "marczhermo/algolia-search",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/marczhermo/algolia-search.git",
+                "reference": "8881cab003803893b470852ba8f7153b986d64fe"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/marczhermo/algolia-search/zipball/8881cab003803893b470852ba8f7153b986d64fe",
+                "reference": "8881cab003803893b470852ba8f7153b986d64fe",
+                "shasum": ""
+            },
+            "require": {
+                "marczhermo/search-list": "dev-master",
+                "silverstripe/admin": "^1@dev",
+                "silverstripe/framework": "^4@dev",
+                "silverstripe/vendor-plugin": "^1.0",
+                "silverstripe/versioned": "^1@dev"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^5.7",
+                "silverstripe/cms": "^4@dev"
+            },
+            "type": "silverstripe-vendormodule",
+            "extra": {
+                "expose": [
+                    "client/dist",
+                    "client/lang"
+                ]
+            },
+            "autoload": {
+                "psr-4": {
+                    "Marcz\\Algolia\\": "code/",
+                    "Marcz\\Algolia\\Tests\\": "tests/php/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "description": "Algolis SilverStripe Module For Search",
+            "keywords": [
+                "admin",
+                "algolia",
+                "search",
+                "silverstripe"
+            ],
+            "time": "2018-04-14T21:49:57+00:00"
+        },
+        {
+            "name": "marczhermo/search-list",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/marczhermo/search-list.git",
+                "reference": "860681a6611b9cfe1b6b588c16d32a7a1e180715"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/marczhermo/search-list/zipball/860681a6611b9cfe1b6b588c16d32a7a1e180715",
+                "reference": "860681a6611b9cfe1b6b588c16d32a7a1e180715",
+                "shasum": ""
+            },
+            "require": {
+                "silverstripe/admin": "^1@dev",
+                "silverstripe/framework": "^4@dev",
+                "silverstripe/vendor-plugin": "^1.0",
+                "silverstripe/versioned": "^1@dev"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^5.7",
+                "silverstripe/cms": "^4@dev"
+            },
+            "type": "silverstripe-vendormodule",
+            "extra": {
+                "expose": [
+                    "client/dist",
+                    "client/lang"
+                ]
+            },
+            "autoload": {
+                "psr-4": {
+                    "Marcz\\Search\\": "code/",
+                    "Marcz\\Search\\Tests\\": "tests/php/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "description": "SilverStripe SearchList",
+            "keywords": [
+                "admin",
+                "search",
+                "searchlist",
+                "silverstripe"
+            ],
+            "time": "2018-04-14T21:47:47+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -4097,7 +4198,8 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "silverstripe/recipe-cms": 0
+        "silverstripe/recipe-cms": 0,
+        "marczhermo/algolia-search": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
