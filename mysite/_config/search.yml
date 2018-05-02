@@ -1,0 +1,21 @@
+---
+Name: mysearch
+---
+SilverStripe\ORM\DataObject:
+  extensions:
+    - Marcz\Search\Extensions\SearchDataListener
+SilverStripe\CMS\Controllers\ContentController:
+  extensions:
+    - Marcz\Search\Extensions\SearchContentExtension
+Marcz\Search\Config:
+  clients:
+    - name: 'Elastic'
+      write: true
+      delete: true
+      export: 'json'
+      class: 'Marcz\Elastic\ElasticClient'
+    - name: 'Algolia'
+      write: true
+      delete: true
+      export: 'json'
+      class: 'Marcz\Algolia\AlgoliaClient'
