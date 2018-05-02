@@ -8,6 +8,24 @@ SilverStripe\CMS\Controllers\ContentController:
   extensions:
     - Marcz\Search\Extensions\SearchContentExtension
 Marcz\Search\Config:
+  indices:
+    - name: 'Properties'
+      class: 'Acme\Property'
+      has_one: true
+      has_many: true
+      many_many: true
+      searchableAttributes:
+        - 'Title'
+        - 'Description'
+        - 'Region'
+      attributesForFaceting:
+        - 'Title'
+        - 'Region'
+        - 'PricePerNight'
+        - 'Bedrooms'
+        - 'Bathrooms'
+        - 'AvailableStart'
+        - 'AvailableEnd'
   clients:
     - name: 'Elastic'
       write: true
