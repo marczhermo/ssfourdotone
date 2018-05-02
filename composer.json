@@ -9,10 +9,20 @@
         "silverstripe-themes/simple": "~3.2.0",
         "cwp/watea-theme": "^1.1",
         "symbiote/silverstripe-queuedjobs": "^4.2",
-        "marczhermo/algolia-search": "dev-master"
+        "marczhermo/algolia-search": "dev-master",
+        "marczhermo/elastic-search": "dev-master"
     },
     "require-dev": {
         "phpunit/phpunit": "^5.7"
+    },
+    "autoload": {
+        "psr-4": {
+            "Acme\\": "mysite/code/"
+        },
+        "classmap": [
+            "mysite/code/Page.php",
+            "mysite/code/PageController.php"
+        ]
     },
     "extra": {
         "branch-alias": {
