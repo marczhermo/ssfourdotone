@@ -1038,12 +1038,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/marczhermo/search-list.git",
-                "reference": "2f246302e62786699e06567ce0f972513068b07c"
+                "reference": "9b18c49fbb34228565f2480a4317550cf04ac320"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/marczhermo/search-list/zipball/2f246302e62786699e06567ce0f972513068b07c",
-                "reference": "2f246302e62786699e06567ce0f972513068b07c",
+                "url": "https://api.github.com/repos/marczhermo/search-list/zipball/9b18c49fbb34228565f2480a4317550cf04ac320",
+                "reference": "9b18c49fbb34228565f2480a4317550cf04ac320",
                 "shasum": ""
             },
             "require": {
@@ -1080,7 +1080,7 @@
                 "searchlist",
                 "silverstripe"
             ],
-            "time": "2018-05-02T11:57:19+00:00"
+            "time": "2018-05-04T23:30:03+00:00"
         },
         {
             "name": "monolog/monolog",
