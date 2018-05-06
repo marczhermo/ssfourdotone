@@ -3,6 +3,7 @@
 namespace Acme;
 
 use PageController;
+use SilverStripe\Forms\CheckboxSetField;
 use SilverStripe\Forms\Form;
 use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\TextField;
@@ -52,6 +53,10 @@ class PropertySearchPageController extends PageController
             }
         }
 
+        if ($regionIds = $request->getVar('RegionID')) {
+            $properties = $properties->filter('RegionID', $regionIds);
+        }
+
         return [
             'Results' => $properties
         ];
@@ -72,34 +77,17 @@ class PropertySearchPageController extends PageController
             $this,
             'PropertySearchForm',
             FieldList::create(
-                TextField::create('Keywords')
-                    ->setAttribute('placeholder', 'City, State, Country, etc...')
-                    ->addExtraClass('form-control'),
-                TextField::create('ArrivalDate','Arrive on...')
-                    ->setAttribute('data-datepicker', true)
-                    ->setAttribute('data-date-format', 'DD-MM-YYYY')
-                    ->addExtraClass('form-control'),
-                DropdownField::create('Nights','Stay for...')
-                    ->setSource($nights)
-                    ->addExtraClass('form-control'),
-                DropdownField::create('Bedrooms')
-                    ->setSource(ArrayLib::valuekey(range(1,5)))
-                    ->addExtraClass('form-control'),
-                DropdownField::create('Bathrooms')
-                    ->setSource(ArrayLib::valuekey(range(1,5)))
-                    ->addExtraClass('form-control'),
-                DropdownField::create('MinPrice','Min. price')
-                    ->setEmptyString('-- any --')
-                    ->setSource($prices)
-                    ->addExtraClass('form-control'),
-                DropdownField::create('MaxPrice','Max. price')
-                    ->setEmptyString('-- any --')
-                    ->setSource($prices)
-                    ->addExtraClass('form-control')
+                TextField::create('Keywords')->setAttribute('placeholder', 'Please type here...'),
+                TextField::create('ArrivalDate','Arrival date'),
+                DropdownField::create('Nights', 'No. of nights')->setEmptyString('-- any --')->setSource($nights),
+                DropdownField::create('Bedrooms', 'No. of bedrooms')->setEmptyString('-- any --')->setSource(ArrayLib::valuekey(range(1,5))),
+                DropdownField::create('Bathrooms', 'No. of bathrooms')->setEmptyString('-- any --')->setSource(ArrayLib::valuekey(range(1,5))),
+                DropdownField::create('MinPrice', 'Min. price')->setEmptyString('-- any --')->setSource($prices),
+                DropdownField::create('MaxPrice', 'Max. price')->setEmptyString('-- any --')->setSource($prices),
+                CheckboxSetField::create('RegionID', 'Regions', Region::get()->map('ID', 'Title'))
             ),
             FieldList::create(
-                FormAction::create('doPropertySearch','Search')
-                    ->addExtraClass('btn-lg btn-fullcolor')
+                FormAction::create('doPropertySearch','Search')->addExtraClass('btn-lg btn-primary')
             )
         );
 
