@@ -29,7 +29,7 @@
         </div>
         <div class="col-lg-9 col-md-9 col-sm-12">
             <div class="row">
-                <% include PropertyList %>
+                <% include PropertySearchList %>
             </div>
             <%--
             <div class="row">
