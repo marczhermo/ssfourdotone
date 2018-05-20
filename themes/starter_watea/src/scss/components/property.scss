@@ -1,3 +1,15 @@
+ul.checkboxset {
+  padding: 0;
+  list-style: none;
+  input.checkbox {
+    display:inline;
+  }
+}
+.field, .btn-toolbar {
+  padding: 10px 0 20px;
+  border-bottom: 1px solid #dfe5e9;
+}
+
 .product-content {
   border: 1px solid #dfe5e9;
   margin-bottom: 20px;
