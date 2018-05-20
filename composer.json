@@ -10,7 +10,8 @@
         "cwp/watea-theme": "^1.1",
         "symbiote/silverstripe-queuedjobs": "^4.2",
         "marczhermo/algolia-search": "dev-master",
-        "marczhermo/elastic-search": "dev-master"
+        "marczhermo/elastic-search": "dev-master",
+        "marczhermo/swiftype-search": "dev-master"
     },
     "require-dev": {
         "phpunit/phpunit": "^5.7"

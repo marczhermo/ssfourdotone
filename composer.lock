@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "84f1ef47c0e388daa1c1c689f3b326fb",
+    "content-hash": "21ae58db021307a1dc4c4ea13030fff3",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -1081,6 +1081,58 @@
                 "silverstripe"
             ],
             "time": "2018-05-04T23:30:03+00:00"
+        },
+        {
+            "name": "marczhermo/swiftype-search",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/marczhermo/swiftype-search.git",
+                "reference": "a06c7a07c728dd12f427b911e875f6c1112c6047"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/marczhermo/swiftype-search/zipball/a06c7a07c728dd12f427b911e875f6c1112c6047",
+                "reference": "a06c7a07c728dd12f427b911e875f6c1112c6047",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/ringphp": "~1.0",
+                "marczhermo/search-list": "dev-master",
+                "silverstripe/admin": "^1@dev",
+                "silverstripe/framework": "^4@dev",
+                "silverstripe/vendor-plugin": "^1.0",
+                "silverstripe/versioned": "^1@dev"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^5.7",
+                "silverstripe/cms": "^4@dev"
+            },
+            "type": "silverstripe-vendormodule",
+            "extra": {
+                "expose": [
+                    "client/dist",
+                    "client/lang"
+                ]
+            },
+            "autoload": {
+                "psr-4": {
+                    "Marcz\\Swiftype\\": "code/",
+                    "Marcz\\Swiftype\\Tests\\": "tests/php/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "description": "Swiftype SilverStripe Module For Search",
+            "keywords": [
+                "admin",
+                "search",
+                "silverstripe",
+                "swiftype"
+            ],
+            "time": "2018-05-19T15:15:32+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -4507,7 +4559,8 @@
     "stability-flags": {
         "silverstripe/recipe-cms": 0,
         "marczhermo/algolia-search": 20,
-        "marczhermo/elastic-search": 20
+        "marczhermo/elastic-search": 20,
+        "marczhermo/swiftype-search": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
