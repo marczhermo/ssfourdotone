@@ -1,7 +1,7 @@
-ul.checkboxset {
+ul.checkboxset, ul.optionset {
   padding: 0;
   list-style: none;
-  input.checkbox {
+  input.checkbox, input.radio {
     display:inline;
   }
 }
