@@ -5,7 +5,11 @@
         <div class="row">
             <div class="col-md-5 col-sm-12 col-xs-12">
                 <div class="product-image">
-	                <img src="$PrimaryPhoto_URL" alt="$PrimaryPhoto">
+                    <% if $PrimaryPhoto %>
+                        $PrimaryPhoto.Fill(760,670)
+                    <% else %>
+	                    <img src="$PrimaryPhoto_URL" alt="$PrimaryPhoto_Title">
+                    <% end_if %>
                     <ul class="amenities">
                         <li><i class="icon-bedrooms"></i> $Bedrooms</li>
                         <li><i class="icon-bathrooms"></i> $Bathrooms</li>
@@ -17,16 +21,40 @@
                     <h5 class="name">
                         <a href="$Link">
                             $Title
-                            <span>$Region.Title</span>
+                            <span>
+                                <% if $Region.Title %>
+                                    $Region.Title
+                                <% else %>
+                                    $Region
+                                <% end_if %>
+                            </span>
                         </a>
                     </h5>
                     <p class="price-container">
-                        <span>$PricePerNight.Nice</span>
+                        <span>
+                            <% if $PricePerNight.Nice %>
+                                $PricePerNight.Nice
+                            <% else %>
+                                ${$PricePerNight}
+                            <% end_if %>
+                        </span>
                     </p>
                 </div>
                 <div class="description">
                     <p>$Description.FirstSentence()</p>
-	                <p>$AvailableStart.Nice - $AvailableEnd.Nice</p>
+	                <p>
+                        <% if $AvailableStart.Nice %>
+                            $AvailableStart.Nice
+                        <% else %>
+                            $AvailableStart
+                        <% end_if %>
+                        -
+                        <% if $AvailableEnd.Nice %>
+                            $AvailableEnd.Nice
+                        <% else %>
+                            $AvailableEnd
+                        <% end_if %>
+                    </p>
                 </div>
                 <div class="product-info smart-form">
                     <div class="row">

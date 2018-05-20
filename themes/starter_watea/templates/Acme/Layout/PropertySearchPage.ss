@@ -1,16 +1,16 @@
 <section id="widget-grid" class="container">
     <div class="row">
         <div class="col-sm-12">
-            <h2>Property Rentals</h2>
+            $Content
         </div>
     </div>
     <div class="row">
         <div class="col-lg-3 col-md-3 col-sm-12">
             <div class="row">
-                <% include FieldRegions %>
-                <% include FieldAmenities %>
-                <% include FieldPriceRanges %>
-                <% include FieldDateAndNights %>
+                <%-- include FieldRegions --%>
+                <%-- include FieldAmenities --%>
+                <%-- include FieldPriceRanges --%>
+                <%-- include FieldDateAndNights --%>
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <h4 class="panel-title">
@@ -30,6 +30,13 @@
         <div class="col-lg-9 col-md-9 col-sm-12">
             <div class="row">
                 <% include PropertySearchList %>
+            </div>
+            <div class="row">
+                <div class="col-sm-12" style="height: 430px;overflow:scroll;">
+                    <figure class="highlight">
+                        <pre><codei style="font-size:10px;">$RawQuery</code></pre>
+                    </figure>
+                </div>
             </div>
             <%--
             <div class="row">
