@@ -10,27 +10,24 @@ use SilverStripe\Forms\TextField;
 use SilverStripe\Forms\DropdownField;
 use SilverStripe\Forms\FormAction;
 use SilverStripe\ORM\ArrayLib;
+use SilverStripe\ORM\ArrayList;
 use SilverStripe\Control\HTTPRequest;
+use Marcz\Search\Config;
 
 class PropertySearchPageController extends PageController
 {
+    protected $rawQuery; // Optional: for demonstration only
 
     public function index(HTTPRequest $request)
     {
-        $properties = Property::get();
-
-        if ($search = $request->getVar('Keywords')) {
-            $properties = $properties->filter(array(
-                'Title:PartialMatch' => $search
-            ));
-        }
+        $properties = $this->createSearch($request->getVar('Keywords'), 'Properties', 'MySQL');
 
         if ($arrival = $request->getVar('ArrivalDate')) {
             $arrivalStamp = strtotime($arrival);
             $nightAdder = '+'.$request->getVar('Nights').' days';
             $startDate = date('Y-m-d', $arrivalStamp);
             $endDate = date('Y-m-d', strtotime($nightAdder, $arrivalStamp));
-            $properties = $properties->filter([
+            $properties->filter([
                 'AvailableStart:LessThanOrEqual' => $startDate,
                 'AvailableEnd:GreaterThanOrEqual' => $endDate
             ]);
@@ -47,18 +44,22 @@ class PropertySearchPageController extends PageController
         foreach($filters as $filterKeys) {
             list($getVar, $field, $filter) = $filterKeys;
             if ($value = $request->getVar($getVar)) {
-                $properties = $properties->filter([
+                $properties->filter([
                     "{$field}:{$filter}" => $value
                 ]);
             }
         }
 
         if ($regionIds = $request->getVar('RegionID')) {
-            $properties = $properties->filter('RegionID', $regionIds);
+            $properties->filter('RegionID', $regionIds);
         }
 
+        $results = $properties->fetch();
+        //Optional: for demonstration only
+        $this->rawQuery = $properties->sql();
+
         return [
-            'Results' => $properties
+            'Results' => $results
         ];
     }
 
@@ -69,7 +70,7 @@ class PropertySearchPageController extends PageController
             $nights[$i] = "$i night" . (($i > 1) ? 's' : '');
         }
         $prices = [];
-        foreach(range(100, 1000, 50) as $i) {
+        foreach(range(0, 400, 50) as $i) {
             $prices[$i] = '$'.$i;
         }
 
@@ -97,5 +98,13 @@ class PropertySearchPageController extends PageController
             ->loadDataFrom($this->request->getVars());
 
         return $form;
+    }
+
+    /**
+     * Optional: for demonstration only
+     */
+    public function getRawQuery()
+    {
+        return print_r($this->rawQuery, 1);
     }
 }
