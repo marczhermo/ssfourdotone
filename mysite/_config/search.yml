@@ -21,6 +21,7 @@ Marcz\Search\Config:
       attributesForFaceting:
         - 'Title'
         - 'Region'
+        - 'RegionID'
         - 'PricePerNight'
         - 'Bedrooms'
         - 'Bathrooms'
