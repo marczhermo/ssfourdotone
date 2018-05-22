@@ -21,7 +21,8 @@ class PropertySearchPageController extends PageController
 
     public function index(HTTPRequest $request)
     {
-        $properties = $this->createSearch($request->getVar('Keywords'), 'Properties', $request->getVar('Client'));
+        $client = $request->getVar('Client') ?: 'MySQL';
+        $properties = $this->createSearch($request->getVar('Keywords'), 'Properties', $client);
 
         if ($arrival = $request->getVar('ArrivalDate')) {
             $arrivalStamp = strtotime($arrival);

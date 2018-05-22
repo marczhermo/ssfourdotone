@@ -1,6 +1,12 @@
 <?php
 
 use SilverStripe\CMS\Controllers\ContentController;
+use Marcz\Search\Config;
+use SilverStripe\ORM\ArrayList;
+use SilverStripe\Forms\FieldList;
+use SilverStripe\Forms\TextField;
+use SilverStripe\Forms\Form;
+use SilverStripe\Forms\FormAction;
 
 class PageController extends ContentController
 {
@@ -19,12 +25,32 @@ class PageController extends ContentController
      *
      * @var array
      */
-    private static $allowed_actions = [];
+    private static $allowed_actions = ['HeaderSearchForm'];
 
     protected function init()
     {
         parent::init();
         // You can include any CSS or JS required by your project here.
         // See: https://docs.silverstripe.org/en/developer_guides/templates/requirements/
+    }
+
+    public function HeaderSearchForm()
+    {
+        $fields = new FieldList(
+            TextField::create('Search', 'Search...')
+                ->addExtraClass('st-default-search-input')
+        );
+
+        $actions = FieldList::create(
+            FormAction::create('doPropertySearch', 'Search')
+                ->addExtraClass('btn btn-default')
+        );
+
+        $form = new Form($this, 'HeaderSearchForm', $fields, $actions);
+        $form->setFormMethod('GET')
+            ->setFormAction($this->Link())
+            ->disableSecurityToken();
+
+        return $form;
     }
 }
