@@ -18,6 +18,7 @@ use SilverStripe\Versioned\Versioned;
 
 class Property extends DataObject
 {
+    private static $table_name = 'Property';
 
     private static $db = [
         'Title' => 'Varchar',

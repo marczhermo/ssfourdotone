@@ -13,6 +13,7 @@ use SilverStripe\Control\Controller;
 
 class Region extends DataObject
 {
+    private static $table_name = 'Region';
 
     private static $db = [
         'Title' => 'Varchar',
