@@ -1,11 +1,11 @@
 <div class="page-sidebar-widget news-events-date-range">
     <% with $DateRangeForm %>
-        <h3 class="h4 page-sidebar-header"><%t CWP.DateRange.FilterDate "Filter by date" %></h3>
+        <h3 class="h4 page-sidebar-header"><%t CWP\\CWP\\PageTypes\\EventHolder.FilterDate "Filter by date" %></h3>
         <form $FormAttributes>
-            <% if $ErrorMessage %>
-                <div id="{$FormName}_error" class="message $ErrorMessageType">$ErrorMessage</div>
+            <% if $Message %>
+                <div id="{$FormName}_error" class="message $MessageType">$Message</div>
             <% else %>
-                <div id="{$FormName}_error" class="message $ErrorMessageType" style="display: none"></div>
+                <div id="{$FormName}_error" class="message $MessageType" style="display: none"></div>
             <% end_if %>
 
             <fieldset>
